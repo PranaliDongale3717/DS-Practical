@@ -1,0 +1,81 @@
+1) /*Rainfall Tracking: 
+Write a program to track rainfall data for 3 cities over 4 months. Using a 2D array, we 
+can store the data, calculate the average rainfall for each city, and display the rainfall 
+data in a tabular format.*/ 
+#include<stdio.h> 
+int main() 
+{ 
+float rainfall[3][4]; 
+float tot=0.0; 
+float avg=0.0; 
+printf(“ PRN: B24CE1067 \n”); 
+printf("Enter rainfall data for 3 cities:\n"); 
+for(int c=0;c<3;c++) 
+{ 
+printf("Enter rainfall data for city %d:\n",c+1); 
+for(int m=0;m<4;m++) 
+{ 
+printf("Month %d:",m+1); 
+scanf("%f",&rainfall[c][m]); 
+} 
+} 
+printf("\n Rainfall Tracker:"); 
+printf("\n SNO.\tCity Name\tMonth1\t Month2\t \t\tMonth3\t Month4\t \tAverage"); 
+printf("\n -----------------------------------------------------------------------------"); 
+for(int c=0;c<3;c++) 
+{ 
+printf("\n %d",c+1); 
+printf("\t"); 
+printf("\tCity %d",c+1); 
+for(int m=0;m<4;m++) 
+{ 
+printf("\t %f",rainfall[c][m]); 
+tot+=rainfall[c][m]; 
+ } 
+ avg=tot/4; 
+ printf("\t%f",avg); 
+ printf("\n ----------------------------------------------------------------------------"); 
+ printf("\n"); 
+ } 
+ return 0; 
+ } 
+
+ 2)/*Temperature Tracking: 
+Write  a  program  for  Tracking  daily  temperatures  of  3  cities  for  a  week  .  The  program 
+calculates the average temperature for each day and for the week. 
+#include <stdio.h> 
+int main() { 
+float temp[3][7];  // 2D array to store temperatures for 3 cities over 7 days 
+int i, j; 
+printf(“ PRN: B24CE1067 \n”); 
+// Input temperatures 
+printf("Enter temperatures for 3 cities over 7 days:\n"); 
+for (i = 0; i < 3; i++) { 
+printf("City %d:\n", i + 1); 
+for (j = 0; j < 7; j++) { 
+printf("  Day %d: ", j + 1); 
+scanf("%f", &temp[i][j]); 
+} 
+} 
+// Calculate and display average temperature for each day 
+printf("\nAverage Temperature for Each Day:\n"); 
+for (j = 0; j < 7; j++) { 
+float daySum = 0.0; 
+for (i = 0; i < 3; i++) { 
+daySum += temp[i][j]; 
+} 
+float dayAverage = daySum / 3; 
+printf("Day %d: %.2f°C\n", j + 1, dayAverage); 
+} 
+// Calculate and display average temperature for each city 
+printf("\nAverage Temperature for Each Week (citywise):\n"); 
+for (i = 0; i < 3; i++) { 
+float citySum = 0.0; 
+for (j = 0; j < 7; j++) { 
+citySum += temp[i][j]; 
+} 
+float cityAverage = citySum / 7; 
+printf("City %d: %.2f°C\n", i + 1, cityAverage); 
+} 
+return 0; 
+}
