@@ -1,0 +1,119 @@
+1) Game Development:
+write a game development program that implements the Bubble Sort algorithm. The program will simulate a simple game where the player can input a set of numbers, 
+and the numbers 	will be sorted using Bubble Sort to simulate a "level-up" scenario where the player's scores 	are sorted in descending order.*/
+
+PROGRAM:
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	int i,n=10,j,temp=0;
+	int score1[n];
+	int score2[n];
+	
+           //Accept score of player1 from user
+	cout<<"Enter score for player1:\n";
+	for(i=0;i<n;i++){
+		cin>>score1[i];
+	}
+
+           //Accept score of player2 from user
+	cout<<"Enter score for player2:\n";
+	for(i=0;i<n;i++){
+		cin>>score2[i];
+	}
+
+	for(i=0;i<n;i++){
+		for(j=0;j<(n-i-1);j++){
+			if(score1[j]<score1[j+1])
+			{  
+				temp = score1[j];
+				score1[j] = score1[j+1];
+				score1[j+1] = temp;
+			}
+		}
+	}
+		cout<<"\nSorted score of Player 1:";
+		for(i=0;i<n;i++){
+		    cout<<"\n";
+			cout<<score1[i];
+		}
+	for(i=0;i<n;i++){
+		for(j=0;j<(n-i-1);j++){
+			if(score2[j]<score2[j+1])
+			{    
+				temp = score2[j];
+				score2[j] = score2[j+1];
+				score2[j+1] = temp;
+			}
+		}
+	}
+		
+	cout<<"\nSorted score of Player 2:";
+	for(i=0;i<n;i++){
+		  cout<<"\n";
+		  cout<<score2[i];
+	}
+
+           //Calculate and display the result of the game
+	if(score1[0]>score2[0]){
+		cout<<"\nResult of the game : Player 1 is winner";
+	}else{
+		cout<<"\nResult of the game: Player 2 is winner";
+	}if(score1[0]==score2[0]){
+		cout<<"\nResult of the game: Match is tie";
+	}
+	
+	return 0;
+}		
+
+2)/*Problem statement:
+Organizing Cards in a Hand:
+Application: When playing card games, players often use an approach similar to insertion sort to organize their cards. 
+They pick one card at a time and insert it into the correct position in their hand, maintaining a sorted sequence.
+Write a program that demonstrates how to organize (sort) cards in a hand using insertion sort*/
+
+PROGRAM:
+#include<iostream>
+using namespace std;
+
+int main(){
+	int n,temp;
+	cout<<"Enter no. of cards:";
+	cin>>n;
+	int arr[n];
+	
+	//Accept card numbers
+	cout<<"Enter your card numbers:";
+	for(int i=0;i<n;i++){
+		cin>>arr[i];
+	}
+	
+          for(int p=0;p<n-1;p++)       //Passes
+	{
+		int i=p+1;                //initialization of unsorted array
+		int j=i-1;                //Initialization of sorted array
+		temp=arr[i];              //shift operation
+		
+		while(j>=0 && temp<arr[j]){
+			arr[j+1]=arr[j];
+			j--;
+		}
+		arr[j+1] = temp;
+	 }
+	
+
+
+ //Cards after sorting
+ cout<<"\nCards in hand:";
+	 
+ for(int i=0;i<n;i++){
+          cout<<"\n";
+          cout<<arr[i];
+	}
+		
+  return 0;
+}
+
+
